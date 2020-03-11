@@ -118,7 +118,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 		// log username, timestamp and image in txt
 		file_put_contents("madlibs/".time().".log", "$name1\n$color\n$noun\n$food\n$pNoun\n$holiday\n$number\n$name2\n$occupation");
 		
-		header("Location: single.php"); //http header allows to proceed to next step, Location redirects
+		header("Location: single.php?filename=".time()); //http header allows to proceed to next step, Location redirects
 		
 	}
 }

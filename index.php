@@ -24,17 +24,6 @@ function listFilesInDirectory($directory){
 // --- YOU SHOULD HAVE HAVE TO MODIFY ANYTHING IN THIS FUNCTION
 // --- You are not obligated to use this function
 
-// controllers
-if ($_SERVER['REQUEST_METHOD'] == "GET") {
-
-}
-
-if ($_SERVER['REQUEST_METHOD'] == "POST") {
-	
-}
-
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -48,9 +37,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 		$madLibFiles = listFilesInDirectory("madlibs/");
 		foreach($madLibFiles as $file) {
 			$filename = basename($file);
-			$splitStringArray = explode(".", $filename);
-			$convertedTime = date("d-M-y H:i", $splitStringArray[0]);
-			echo "Filename: "?> <a href=<?php echo "single.php?filename=$filename"?>><?php echo "$filename"?></a><?php echo " --- Date Created: $convertedTime<br>";
+			$filenameNoExt = explode(".", $filename);
+			$convertedTime = date("d-M-y H:i", $filenameNoExt[0]);
+			echo "Filename: "?> <a href=<?php echo "single.php?filename=$filenameNoExt[0]"?>><?php echo "$filename"?></a><?php echo " --- Date Created: $convertedTime<br>";
 		}
 
 	?>
