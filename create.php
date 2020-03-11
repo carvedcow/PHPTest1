@@ -226,15 +226,15 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 	<h1>Please enter the following: </h1>
 	<br>
 	<form action="create.php" method="POST" enctype="multipart/form-data">
-		<label for="txtPerson1Name">Person 1's name: </label><input type="text" name="name1" id="txtPerson1Name"><br/>
-		<label for="txtColor">Color: </label><input type="text" name="color" id="txtColor"><br/>
-		<label for="txtNoun">Noun: </label><input type="text" name="noun" id="txtNoun"><br/>
-		<label for="txtFood">Food: </label><input type="text" name="food" id="txtFood"><br/>
-		<label for="txtPluralNoun">Plural Noun: </label><input type="text" name="pNoun" id="txtPluralNoun"><br/>
-		<label for="txtHoliday">Holiday: </label><input type="text" name="holiday" id="txtHoliday"><br/>
-		<label for="txtNumber">Number: </label><input type="text" name="number" id="txtNumber"><br/>
-		<label for="txtPerson2Name">Person 2's name: </label><input type="text" name="name2" id="txtPerson2Name"><br/>
-		<label for="txtOccupation">Occupation: </label><input type="text" name="occupation" id="txtOccupation"><br/>
+		<label for="txtPerson1Name">Person 1's name: </label><input type="text" name="name1" id="txtPerson1Name" value="<?php echo isset($_POST["name1"]) ? $_POST["name1"] : ''; ?>"><br/>
+		<label for="txtColor">Color: </label><input type="text" name="color" id="txtColor" value="<?php echo isset($_POST["color"]) ? $_POST["color"] : ''; ?>"><br/>
+		<label for="txtNoun">Noun: </label><input type="text" name="noun" id="txtNoun" value="<?php echo isset($_POST["noun"]) ? $_POST["noun"] : ''; ?>"><br/>
+		<label for="txtFood">Food: </label><input type="text" name="food" id="txtFood" value="<?php echo isset($_POST["food"]) ? $_POST["food"] : ''; ?>"><br/>
+		<label for="txtPluralNoun">Plural Noun: </label><input type="text" name="pNoun" id="txtPluralNoun" value="<?php echo isset($_POST["pNoun"]) ? $_POST["pNoun"] : ''; ?>"><br/>
+		<label for="txtHoliday">Holiday: </label><input type="text" name="holiday" id="txtHoliday" value="<?php echo isset($_POST["holiday"]) ? $_POST["holiday"] : ''; ?>"><br/>
+		<label for="txtNumber">Number: </label><input type="text" name="number" id="txtNumber" value="<?php echo isset($_POST["number"]) ? $_POST["number"] : ''; ?>"><br/>
+		<label for="txtPerson2Name">Person 2's name: </label><input type="text" name="name2" id="txtPerson2Name" value="<?php echo isset($_POST["name2"]) ? $_POST["name2"] : ''; ?>"><br/>
+		<label for="txtOccupation">Occupation: </label><input type="text" name="occupation" id="txtOccupation" value="<?php echo isset($_POST["occupation"]) ? $_POST["occupation"] : ''; ?>"><br/>
 		<br>
 		<button type="submit" name="btnCreateML">Create Mad Lib</button>
 	</form>
