@@ -91,6 +91,7 @@
 
 // values
 $display = false;
+$hasInputs = false;
 $name1 = "";
 $color = "";
 $noun = "";
@@ -100,9 +101,90 @@ $holiday = "";
 $number = 0;
 $name2 = "";
 $occupation = "";
+$errors = array();
+$ValidHolidays = ["Valentine's Day", "Mother's Day", "Canada Day", "Thanksgiving", "Halloween"];
 // functions
+function isRequired($string) {
+	$updatedString = $string." is required.";
+	return $updatedString;
+}
+
 // controllers
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
+
+	//validation
+	if (empty($_POST['name1'])) {
+		$errors[] = "Person 1's name is required.";
+	} else {
+		$name1 = ucfirst(strtolower($_POST['name1']));
+		$hasInputs = true;
+	}
+
+	if (empty($_POST['color'])) {
+		$errors[] = isRequired("Color");
+	} else {
+		$color = $_POST['color'];
+		$hasInputs = true;
+	}
+
+	if (empty($_POST['noun'])) {
+		$errors[] = isRequired("Noun");
+	} else {
+		$noun = $_POST['noun'];
+		$hasInputs = true;
+	}
+
+	if (empty($_POST['food'])) {
+		$errors[] = isRequired("Food");
+	} else {
+		$food = $_POST['food'];
+		$hasInputs = true;
+	}
+
+	if (empty($_POST['pNoun'])) {
+		$errors[] = isRequired("Plural noun");
+	} else {
+		$pNoun = $_POST['pNoun'];
+		$hasInputs = true;
+	}
+
+	if (empty($_POST['holiday'])) {
+		$errors[] = isRequired("Holiday");
+	} else {
+		$hasInputs = true;
+		if (in_array($_POST['holiday'], $ValidHolidays)) {
+			$holiday = $_POST['holiday'];
+		} else {
+			$errors[] = "Only \"Valentine's Day\", \"Mother's Day\", \"Canada Day\", \"Thanksgiving\" and \"Halloween\" is allowed as a holiday.";
+		}
+		
+	}
+
+	if (empty($_POST['number'])) {
+		$errors[] = isRequired("Number");
+	} else {
+		$hasInputs = true;
+		if (filter_var($_POST['number'], FILTER_VALIDATE_INT)) {
+			$number = $_POST['number'];
+		} else {
+			$errors[] = isRequired("Valid Integer for number");
+		}
+	}
+
+	if (empty($_POST['name2'])) {
+		$errors[] = isRequired("Person 2's name");
+	} else {
+		$hasInputs = true;
+		$pNoun = ucfirst(strtolower($_POST['name2']));
+	}
+
+	if (empty($_POST['occupation'])) {
+		$errors[] = isRequired("Occupation");
+	} else {
+		$hasInputs = true;
+		$occupation = $_POST['occupation'];
+	}
+
 	$display = true;
 	$name1 = ucfirst(strtolower($_POST['name1']));
 	$color = $_POST['color'];
@@ -113,13 +195,20 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 	$number = $_POST['number'];
 	$name2 = ucfirst(strtolower($_POST['name2']));
 	$occupation = $_POST['occupation'];
-	if ($display) {
+
+	//$display = true;
+	if (empty($errors)) {
+	//if ($display) {
 		//echo "success";
-		// log username, timestamp and image in txt
+		// log all variables into .log file
 		file_put_contents("madlibs/".time().".log", "$name1\n$color\n$noun\n$food\n$pNoun\n$holiday\n$number\n$name2\n$occupation");
 		
-		header("Location: single.php?filename=".time()); //http header allows to proceed to next step, Location redirects
-		
+		header("Location: single.php?filename=".time());
+	}
+	elseif ($hasInputs) {
+		foreach ($errors as $key => $val) {
+			echo "$val\n";
+		}
 	}
 }
 

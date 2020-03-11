@@ -39,7 +39,8 @@ function listFilesInDirectory($directory){
 			$filename = basename($file);
 			$filenameNoExt = explode(".", $filename);
 			$convertedTime = date("d-M-y H:i", $filenameNoExt[0]);
-			echo "Filename: "?> <a href=<?php echo "single.php?filename=$filenameNoExt[0]"?>><?php echo "$filename"?></a><?php echo " --- Date Created: $convertedTime<br>";
+			echo "Filename: <a href=\"single.php?filename=".$filenameNoExt[0]."\"> ". $filename. "</a> --- Date Created:". $convertedTime. "<br>";
+			/*echo "Filename: "?> <a href=<?php echo "single.php?filename=$filenameNoExt[0]"?>><?php echo "$filename"?></a><?php echo " --- Date Created: $convertedTime<br>";*/
 		}
 
 	?>
