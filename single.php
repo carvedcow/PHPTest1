@@ -1,6 +1,6 @@
 <?php
 	//values
-	$varFromGet = "";
+	$filenameFromGet = $_GET['filename'];
 	//controller
 	if ($_SERVER['REQUEST_METHOD'] == "GET") {
 
@@ -10,6 +10,7 @@
 		
 	}
 ?>
+
 <!DOCTYPE html>
 	<html lang="en">
 	<head>
@@ -20,6 +21,6 @@
 	<body>
 		<hr>
 		<br>
-		<a href="index.php">Index</a>
+		<a href="index.php">Back to Index</a>
 	</body>
 </html>

@@ -50,14 +50,14 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 			$filename = basename($file);
 			$splitStringArray = explode(".", $filename);
 			$convertedTime = date("d-M-y H:i", $splitStringArray[0]);
-			echo "Filename: "?> <a href=<?php echo "madlibs/$filename"?>><?php echo "$filename"?></a><?php echo "--- Date Created: $convertedTime<br>";
+			echo "Filename: "?> <a href=<?php echo "single.php?filename=$filename"?>><?php echo "$filename"?></a><?php echo " --- Date Created: $convertedTime<br>";
 		}
 
 	?>
-	<form method="GET" action="single.php">
-		<input type="hidden" name="fileName" value="<?php echo "$filename"?>">
+	<!-- <form method="GET" action="single.php">
+		<input type="hidden" name="fileName" value="<?php //echo "$filename"?>">
 		<input type="submit" name="test">
-	</form>
+	</form> -->
 	<hr>
 	<br>
 	<a href="create.php">Create a new Mad Lib</a>
