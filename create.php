@@ -164,7 +164,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 		$errors[] = isRequired("Number");
 	} else {
 		$hasInputs = true;
-		if (filter_var($_POST['number'], FILTER_VALIDATE_INT || filter_var($int, FILTER_VALIDATE_INT) === 0) {
+		if (filter_var($_POST['number'], FILTER_VALIDATE_INT || filter_var($int, FILTER_VALIDATE_INT) === 0)) {
 			$number = $_POST['number'];
 		} else {
 			$errors[] = isRequired("Valid Integer for number");
