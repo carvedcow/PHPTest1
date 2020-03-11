@@ -18,7 +18,7 @@
 			$color = trim($lines[1]);
 			$noun = trim($lines[2]);
 			$food = trim($lines[3]);
-			$pluralNoun = trim($lines[4]);
+			$pNoun = trim($lines[4]);
 			$holiday = trim($lines[5]);
 			$number = trim($lines[6]);
 			$name2 = trim($lines[7]);
@@ -32,7 +32,7 @@ echo "
 Dear $name1,\n
 \n
 Thanks for ordering via the $color $noun Candy Company website.\n
-Unfortunately, your $food flavoured snacks are no longer available because $pluralNoun accidentally fell into our mixer.\n
+Unfortunately, your $food flavoured snacks are no longer available because $pNoun accidentally fell into our mixer.\n
 We apologize for the inconvenience.\n
 Since you were ordering these for a party to celebrate $holiday, we are offering you a discount of $number dollars instead.\n
 \n

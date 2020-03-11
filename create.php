@@ -96,7 +96,7 @@ $name1 = "";
 $color = "";
 $noun = "";
 $food = "";
-$pluralNoun = "";
+$pNoun = "";
 $holiday = "";
 $number = 0;
 $name2 = "";
@@ -175,7 +175,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 		$errors[] = isRequired("Person 2's name");
 	} else {
 		$hasInputs = true;
-		$pNoun = ucfirst(strtolower($_POST['name2']));
+		$name2 = ucfirst(strtolower($_POST['name2']));
 	}
 
 	if (empty($_POST['occupation'])) {
@@ -185,16 +185,16 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 		$occupation = $_POST['occupation'];
 	}
 
-	$display = true;
-	$name1 = ucfirst(strtolower($_POST['name1']));
-	$color = $_POST['color'];
-	$noun = $_POST['noun'];
-	$food = $_POST['food'];
-	$pNoun = $_POST['pNoun'];
-	$holiday = $_POST['holiday'];
-	$number = $_POST['number'];
-	$name2 = ucfirst(strtolower($_POST['name2']));
-	$occupation = $_POST['occupation'];
+	// $display = true;
+	// $name1 = ucfirst(strtolower($_POST['name1']));
+	// $color = $_POST['color'];
+	// $noun = $_POST['noun'];
+	// $food = $_POST['food'];
+	// $pNoun = $_POST['pNoun'];
+	// $holiday = $_POST['holiday'];
+	// $number = $_POST['number'];
+	// $name2 = ucfirst(strtolower($_POST['name2']));
+	// $occupation = $_POST['occupation'];
 
 	//$display = true;
 	if (empty($errors)) {
